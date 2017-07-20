@@ -115,7 +115,7 @@
       #endif
 
       static float measure_point_with_encoder();
-      static float measure_business_card_thickness(float&);
+      static float measure_business_card_thickness(float);
       static bool g29_parameter_parsing();
       static void find_mean_mesh_height();
       static void shift_mesh_height();
@@ -256,7 +256,7 @@
           SERIAL_ECHOPAIR(",x1_i=", x1_i);
           SERIAL_ECHOPAIR(",yi=", yi);
           SERIAL_CHAR(')');
-          SERIAL_EOL;
+          SERIAL_EOL();
           return NAN;
         }
 
@@ -276,7 +276,7 @@
           SERIAL_ECHOPAIR(", xi=", xi);
           SERIAL_ECHOPAIR(", y1_i=", y1_i);
           SERIAL_CHAR(')');
-          SERIAL_EOL;
+          SERIAL_EOL();
           return NAN;
         }
 
@@ -301,7 +301,7 @@
           SERIAL_ECHOPAIR("? in get_z_correction(lx0=", lx0);
           SERIAL_ECHOPAIR(", ly0=", ly0);
           SERIAL_CHAR(')');
-          SERIAL_EOL;
+          SERIAL_EOL();
 
           #if ENABLED(ULTRA_LCD)
             strcpy(lcd_status_message, "get_z_correction() indexes out of range.");
@@ -336,7 +336,7 @@
           if (DEBUGGING(MESH_ADJUST)) {
             SERIAL_ECHOPGM(" >>>---> ");
             SERIAL_ECHO_F(z0, 6);
-            SERIAL_EOL;
+            SERIAL_EOL();
           }
         #endif
 
@@ -352,7 +352,7 @@
               SERIAL_CHAR(',');
               SERIAL_ECHO(ly0);
               SERIAL_CHAR(')');
-              SERIAL_EOL;
+              SERIAL_EOL();
             }
           #endif
         }
